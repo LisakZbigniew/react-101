@@ -1,15 +1,20 @@
 import { Component } from "react";
+import "./ExpenseItem.css";
 
-class ExpenseItem extends Component{
-    render(){
+class ExpenseItem extends Component {
+    constructor({ expense }) {
+        super({ expense: expense });
+        this.expense = expense;
+    }
+
+    render() {
         return (
-            <div>
-                <div>Date</div>
-                <div>
-                    <h2>Expense Title</h2>
-                    <div>
-                        <div>Amount</div>
-                        <div>Type</div>
+            <div className="expense-item">
+                <div>{this.expense.date.toLocaleString("en-GB")}</div>
+                <div className="expense-item__description">
+                    <h2>{this.expense.title}</h2>
+                    <div className="expense-item__price">
+                        {this.expense.price}
                     </div>
                 </div>
             </div>
